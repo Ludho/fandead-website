@@ -5,10 +5,9 @@ import PaginationComponent from '../components/Pagination/Pagination';
 
 
 const Clips = (props) => {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState(null);
   const [totalVideos, setTotalVideos] = useState(null);
   const [currPage, setCurrPage] = useState(props.page||1);
-  const [vtubers, setVtubers] = useState(props.vtubers||null);
   const [perPage] = useState(props.perPage||process.env.REACT_APP_PERPAGE);
 
   useEffect(()=>{
@@ -18,7 +17,6 @@ const Clips = (props) => {
   async function getClips() {
     let url = new URL(process.env.REACT_APP_URLAPI);
     if(perPage){url.searchParams.append('perPage', perPage)};
-    console.log(currPage)
     if(currPage){url.searchParams.append('page', currPage)};
     if(props.vtubers){url.searchParams.append('vtubers', props.vtubers)};
 
@@ -43,6 +41,7 @@ const Clips = (props) => {
       textAlign: 'center',
       height: '100vh'
     }}
+    class="container"
     >
       <h1>Clips</h1>
       {videos &&   

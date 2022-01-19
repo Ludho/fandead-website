@@ -1,11 +1,14 @@
 import React from 'react';
 
 const ClipElement = ({ data }) =>  {
-    console.log(data)
     var vtuberArr = data.vtuber.split(',');
+    var imgref= 'https://i.ytimg.com/vi_webp/'+data.id+'/mqdefault.webp'
     return (
         <>
-        <div >
+        <div class="col-md-3">
+            <a>
+              <img href={imgref}/>
+            </a>
             <h3>{data.title}</h3>
             <p>{data.uploadTime}</p>
             <p>{data.duration}</p>

@@ -2,14 +2,18 @@ import React from 'react';
 import ClipElement from './ClipElement';
 
 const ClipsComponent = ({ props }) =>  {
-    console.log(props.videos)
+    const ClipJSX = [];
+    props.videos.forEach(video => {
+        ClipJSX.push(
+            <ClipElement key={video.id} data={video}/>
+          );
+    });
+    
     return <>
-        
-        {props.videos && props.videos.map(video=>{
-                <ClipElement data={video}/>
-            })
-        }
-        </>
+        <div class="row">
+            {ClipJSX}
+        </div>
+    </>
 
 } 
 export default ClipsComponent;
