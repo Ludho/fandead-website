@@ -11,7 +11,12 @@ import Miscellaneous from './pages/miscellaneous';
 
 function App() {
   return (
-    <Router>
+    <div
+    style={{
+      'backgroundColor': '#374877',
+  }}
+    >
+      <Router>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>} />
@@ -22,6 +27,8 @@ function App() {
         <Route path='/miscellaneous' element={<Miscellaneous/>} />
       </Routes>
     </Router>
+    </div>
+   
   );
 }
 

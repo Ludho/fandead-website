@@ -35,15 +35,12 @@ const Clips = (props) => {
     setCurrPage(pageNumber);
   }
   return (
-      
-    <div
+      <div
     style={{
       textAlign: 'center',
-      height: '100vh'
     }}
     class="container"
     >
-      <h1>Clips</h1>
       {videos &&   
         <ClipsComponent props={{videos: videos}}/>
       }
@@ -51,6 +48,7 @@ const Clips = (props) => {
         <PaginationComponent props={{currentPage: currPage,lastPage: Math.floor(totalVideos/(props.perPage||15)),paginate: paginate}}/>
       }
     </div>
+    
   );
 
 };
