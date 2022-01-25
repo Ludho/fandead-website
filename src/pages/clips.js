@@ -15,7 +15,7 @@ const Clips = (props) => {
   },[currPage]);
 
   async function getClips() {
-    let url = new URL(process.env.REACT_APP_URLAPI);
+    let url = new URL(process.env.REACT_APP_URLAPICLIPS);
     if(perPage){url.searchParams.append('perPage', perPage)};
     if(currPage){url.searchParams.append('page', currPage)};
     if(props.vtubers){url.searchParams.append('vtubers', props.vtubers)};
@@ -27,6 +27,7 @@ const Clips = (props) => {
     .then((data)=>{
       setVideos(data.videos);
       setTotalVideos(data.totalVideos);
+
     })
   }
   
@@ -34,10 +35,16 @@ const Clips = (props) => {
   const paginate = (pageNumber) => {
     setCurrPage(pageNumber);
   }
-  return (
+  
+    return (
+
       <div
     style={{
       textAlign: 'center',
+      paddingTop:'10px',
+
+      
+
     }}
     class="container"
     >
@@ -45,11 +52,11 @@ const Clips = (props) => {
         <ClipsComponent props={{videos: videos}}/>
       }
       {totalVideos &&
-        <PaginationComponent props={{currentPage: currPage,lastPage: Math.floor(totalVideos/(props.perPage||15)),paginate: paginate}}/>
+        <PaginationComponent props={{currentPage: currPage,lastPage: Math.floor(totalVideos/(perPage)),paginate: paginate}}/>
       }
     </div>
     
-  );
+  );  
 
 };
   

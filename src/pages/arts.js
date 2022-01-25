@@ -5,10 +5,11 @@ const Art = () => {
     <div
     style={{
         textAlign: 'center',
-        height: '100vh'
+        height: '100vh',
+        color:'white'
       }}
     >
-      <h1>Art</h1>
+      <h1>Work in progress...</h1>
     </div>
   );
 };

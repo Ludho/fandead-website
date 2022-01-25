@@ -1,16 +1,61 @@
 import React from 'react';
+import ClipsComponent from '../components/Clips/ClipsComponent';
+import {useEffect, useState} from 'react';
+import PaginationComponent from '../components/Pagination/Pagination';
+
+const Miscellaneous = (props) => {
+  const [videos, setVideos] = useState(null);
+  const [totalVideos, setTotalVideos] = useState(null);
+  const [currPage, setCurrPage] = useState(props.page||1);
+  const [perPage] = useState(props.perPage||process.env.REACT_APP_PERPAGE);
+
+  useEffect(()=>{
+    getClips()
+  },[currPage]);
+
+  async function getClips() {
+    let url = new URL(process.env.REACT_APP_URLAPICLIPS);
+    if(perPage){url.searchParams.append('perPage', perPage)};
+    if(currPage){url.searchParams.append('page', currPage)};
+    if(props.vtubers){url.searchParams.append('vtubers', props.vtubers)};
+
+    fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then((data)=>{
+      setVideos(data.videos);
+      setTotalVideos(data.totalVideos);
+
+    })
+  }
   
-const Miscellaneous = () => {
-  return (
-    <div
+  // Change page
+  const paginate = (pageNumber) => {
+    setCurrPage(pageNumber);
+  }
+  
+    return (
+
+      <div
     style={{
-        textAlign: 'center',
-        height: '100vh'
-      }}
+      textAlign: 'center',
+      paddingTop:'10px',
+
+      
+
+    }}
+    class="container"
     >
-      <h1>Miscellaneous</h1>
+      {videos &&   
+        <ClipsComponent props={{videos: videos}}/>
+      }
+      {totalVideos &&
+        <PaginationComponent props={{currentPage: currPage,lastPage: Math.floor(totalVideos/(perPage)),paginate: paginate}}/>
+      }
     </div>
-  );
+    
+  );  
 };
   
 export default Miscellaneous;
