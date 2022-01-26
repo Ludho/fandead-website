@@ -5,7 +5,8 @@ import {
   Bars,
   NavMenu,
 } from './NavbarElements';
-  
+import logo from "../../asset/logo.png"
+
 const Navbar = () => {
   return (
     <>
@@ -13,8 +14,8 @@ const Navbar = () => {
         <Bars />
   
         <NavMenu>
-          <NavLink to='/' activeStyle>
-            Home
+          <NavLink style={{padding:0}} to='/' activeStyle>
+            <a><img style={{height: '85px'}} src={logo}/></a>
           </NavLink>
           <NavLink to='/about' activeStyle>
             About
