@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  fandeadfront:
+    hostname: fandead-website
+    container_name: fandeadfront
+    image: bayesimpact/react-base
+    entrypoint: ./entrypoint.sh
+    working_dir: /app
+    volumes:
+      - ".:/app"
+    networks:
+      - web
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true" 
+      - "traefik.docker.network=web" 
+      - "traefik.http.services.fandeadfront.loadbalancer.server.port=3000" 
+      - "traefik.http.routers.fandeadfront.rule=Host(`fandead.fr`)" 
+      - "traefik.http.routers.fandeadfront.tls.domains[0].main=fandead.fr" 
+      - "traefik.http.routers.fandeadfront.entrypoints=websecure" 
+      - "traefik.http.routers.fandeadfront.tls.certresolver=myhttpchallenge"
+
+networks:
+  web:
+    external: true
