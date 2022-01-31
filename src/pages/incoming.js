@@ -22,14 +22,12 @@ const Incoming = () => {
     .then((data)=>{
       data.live.forEach(live => {
         if(live.channel.name.includes("Rushia")){
-          console.log(live)
           setLives(live);
         }
       });
       let upcoming=[];
       data.upcoming.forEach(live => {
         if(live.channel.name.includes("Rushia")){
-          console.log(live)
           upcoming.push(live);
         }
       });

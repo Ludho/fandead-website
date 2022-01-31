@@ -24,7 +24,7 @@ const About = () => {
     return text.split(urlRegex)
        .map(part => {
           if(part.match(urlRegex)) {
-             return <a style={{color:process.env.REACT_APP_PINK}} href={part}>{part}</a>;
+             return <a key="part" style={{color:process.env.REACT_APP_PINK}} href={part}>{part}</a>;
           }
           return part;
        });
@@ -46,7 +46,6 @@ const About = () => {
     })
     .then((data)=>{
       setChannel(data);
-      console.log(data)
     })
   }
 
