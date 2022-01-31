@@ -14,22 +14,22 @@ const Navbar = () => {
         <Bars />
   
         <NavMenu>
-          <NavLink style={{padding:0}} to='/' activeStyle>
-            <a><img style={{height: '85px'}} src={logo}/></a>
+          <NavLink style={{padding:0}} to='/' activestyle={NavLink}>
+            <img style={{height: '85px'}} src={logo}/>
           </NavLink>
-          <NavLink to='/about' activeStyle>
+          <NavLink to='/about' activestyle={NavLink}>
             About
           </NavLink>
-          <NavLink to='/live' activeStyle>
+          <NavLink to='/live' activestyle={NavLink}>
             Live
           </NavLink>
-          <NavLink to='/clips' activeStyle>
+          <NavLink to='/clips' activestyle={NavLink}>
             Clips
           </NavLink>
-          <NavLink to='/arts' activeStyle>
+          <NavLink to='/arts' activestyle={NavLink}>
             Arts
           </NavLink>
-          <NavLink to='/miscellaneous' activeStyle>
+          <NavLink to='/miscellaneous' activestyle={NavLink}>
             Miscellaneous
           </NavLink>
         </NavMenu>
