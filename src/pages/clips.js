@@ -46,7 +46,7 @@ const Clips = (props) => {
       
 
     }}
-    class="container"
+    className="container"
     >
       {videos &&   
         <ClipsComponent props={{videos: videos}}/>

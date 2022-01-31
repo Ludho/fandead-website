@@ -10,7 +10,7 @@ const ClipsComponent = ({ props }) =>  {
     });
     
     return <>
-        <div class="row"
+        <div className="row"
         >
             {ClipJSX}
         </div>

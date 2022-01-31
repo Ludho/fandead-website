@@ -139,13 +139,13 @@ const ClipElement = ({ data }) =>  {
     const [disp, setDisp] = useState('none');
     return (
         <>
-        <div class="col-md-3" 
+        <div className="col-md-3" 
         style={{
             padding:'3px'
             
         }}
         >
-            <div class="videocard"
+            <div className="videocard"
             style={{
                 backgroundColor: '#6F96CD',
                 display: 'grid',
@@ -161,7 +161,7 @@ const ClipElement = ({ data }) =>  {
                     height: '200px'
                 }}
             >
-                <img alt="videoImg" src={imgref} class="img-fluid"
+                <img alt="videoImg" src={imgref} className="img-fluid"
                                 style={{
                     height: '200px',
                     borderRadius:'6px 6px 0px 0px',
